@@ -1,9 +1,9 @@
 ---
-interface Props {
+export type CardProps = {
 	title: string;
 	body: string;
 	href: string;
-}
+};
 
 const { href, title, body } = Astro.props;
 ---

@@ -1,10 +1,35 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import Card, { type CardProps } from "../components/Card.astro";
+
+const pages: CardProps[] = [
+	{
+		href: "/dutch-national-flag",
+		title: "National Dutch Flag",
+		body: "Efficiently sorts arrays with three values using a clever two-pointer approach.",
+	},
+];
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<h1 class="text-3xl font-bold underline">Hello world!</h1>
+		<h1>Welcome to <span class="text-gradient">Algos</span></h1>
+		<p class="instructions">
+			From sorting your playlist to powering advanced technologies like self-driving cars, algorithms are everywhere.
+			Learn the basics of how they work, discover different types like sorting and searching algorithms, and find out
+			why some are more efficient than others.
+		</p>
+		<ul role="list" class="link-card-grid">
+			{pages.map((card) => <Card {...card} />)}
+		</ul>
 	</main>
 </Layout>
+
+<style>
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+</style>
